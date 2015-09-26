@@ -17,8 +17,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "./_spinner.scss";
 @import "compass";
 @import "compass/layout/sticky-footer";
-@import "../modules/home/styles/_home";
-@import "../modules/login/styles/_login";
 body {
   padding-top: 50px;
 }

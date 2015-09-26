@@ -13,21 +13,11 @@
     var base = 'modules/';
 
     // @todo: controllerAs issue: https://github.com/driftyco/ionic/issues/3058
-    $stateProvider.state('login', {
-      url: '/login',
-      templateUrl: base + 'login/login.html',
-      controller: 'LoginCtrl',
-      controllerAs: 'vm',
-      data: {
-        requireLogin: false
-      }
-    })
-
-    .state('user', {
+    $stateProvider.state('layout', {
         abstract: true,
-        templateUrl: base + 'user-layout/user-layout.html'
+        templateUrl: base + 'layout/layout.html'
       })
-      .state('user.routes', {
+      .state('layout.routes', {
         url: '/routes',
         templateUrl: base + 'routes/routes.html',
         controller: 'RoutesCtrl',
@@ -41,39 +31,18 @@
           }
         }
       })
-      .state('user.account', {
+      .state('layout.account', {
         url: '/account',
         templateUrl: base + 'account/account.html',
         data: {
           requireLogin: true
         }
       })
-
-    .state('home', {
-        abstract: true,
-        templateUrl: base + 'landing/landing-layout.html',
-        controller: 'LandingLayoutCtrl',
-        controllerAs: 'vm'
-      })
-      .state('home.index', {
+      .state('layout.index', {
         url: '/home',
-        templateUrl: base + 'landing/landing.html'
-      })
-      .state('home.support', {
-        url: '/home/support',
-        templateUrl: base + 'landing/landing-support.html'
-      })
-      .state('home.terms', {
-        url: '/home/terms',
-        templateUrl: base + 'landing/landing-terms.html'
-      })
-      .state('home.about', {
-        url: '/home/about',
-        templateUrl: base + 'landing/landing-about.html'
-      })
-      .state('home.why', {
-        url: '/home/why',
-        templateUrl: base + 'landing/landing-why.html'
+        templateUrl: base + 'home/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise(function($injector) {

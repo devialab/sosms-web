@@ -1,0 +1,14 @@
+<section>
+  <h2>Please support us!</h2>
+  <input type="range">
+  <input type="text" ng-model="vm.amount">
+  <div>
+    <input type="radio" name="type" value="paypal" checked="checked">
+    <img src="images/paypal.png" alt="Pay with paypal.com">
+  </div>
+  <div>
+    <input type="radio" name="type" value="bitcoint" checked="checked">
+    <img src="images/bitcoin.png" alt="Pay with bitcoins">
+  </div>
+  <button class="btn btn-success btn-clock" ng-click="vm.donate(vm.amount)">Donate!</button>
+</section>

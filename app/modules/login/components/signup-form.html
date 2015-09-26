@@ -1,0 +1,47 @@
+<form id="signup-form" name="signupform" class="col-sm-12">
+
+  <div class="form-group" ng-class="{'has-error': signupform.username.$invalid && signupform.username.$dirty}">
+    <label for="signup-username">Username</label>
+    <input type="text" name="username" class="form-control" id="signup-username" placeholder="Username" ng-model="vm.username" required>
+  
+    <!-- Errors -->
+    <div class="form-message" role="alert" ng-show="signupform.$submitted || signupform.username.$dirty">
+      <div ng-show="signupform.username.$error.required">Tell us your username.</div>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': signupform.email.$invalid && signupform.email.$dirty}">
+    <label for="signup-email">Email</label>
+    <input type="email" name="email" class="form-control" id="signup-email" placeholder="Email" ng-model="vm.email" required email>
+
+    <!-- Errors -->
+    <div class="form-message" role="alert" ng-show="signupform.$submitted || signupform.email.$dirty">
+      <div ng-show="signupform.email.$error.required">Tell us your email.</div>
+    </div>
+    <div class="form-message" role="alert" ng-show="signupform.email.$invalid && signupform.email.$dirty">
+      <div ng-show="signupform.email.$error.email">Really?</div>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': signupform.password.$invalid && signupform.password.$dirty}">
+    <label for="signup-password">Password</label>
+    <input type="password" name="password" class="form-control" id="signup-password" placeholder="Password" ng-model="vm.password" required>
+
+    <!-- Errors -->
+    <div class="form-message" role="alert" ng-show="signupform.$submitted || signupform.password.$dirty">
+      <div ng-show="signupform.password.$error.required">Password required.</div>
+    </div>
+  </div>
+
+  <div class="terms">
+    <p>
+      By clicking you accept <a href="#/home/terms">terms and conditions</a>
+    </p>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="vm.signup(vm.email, vm.username, vm.password)">Sign Up</button>
+
+  <!-- Errors -->
+  <div class="login-message" role="alert" ng-show="signupform.$submitted">
+    <div ng-show="signupform.$submitted">Username or email already exists</div>
+  </div>
+</form>

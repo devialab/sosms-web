@@ -14,10 +14,9 @@
 
     //features
     'app.account',
-    'app.landing',
+    'app.layout',
     'app.login',
-    'app.routes',
-    'app.user-layout'
+    'app.routes'
 
   ]).config(configure).run(init);
 
