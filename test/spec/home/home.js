@@ -7,11 +7,8 @@ describe('Controller: HomeCtrl', function() {
   beforeEach(module('app.home'));
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($controller, $rootScope) {
-    scope = $rootScope.$new();
-    HomeCtrl = $controller('HomeCtrl', {
-      $scope: scope
-    });
+  beforeEach(inject(function($controller) {
+    HomeCtrl = $controller('HomeCtrl');
   }));
 
   it('should attach a list of awesomeThings to the scope', function() {
