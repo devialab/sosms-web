@@ -34,6 +34,8 @@
       .state('layout.settings', {
         url: '/settings',
         templateUrl: base + 'settings/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'vm',
         data: {
           // requireLogin: true
         }
