@@ -15,8 +15,8 @@
     </div>
     <div class="form-group">
       <label for="textArea" class="control-label pull-left" maxlength="140">Type your message</label>
-      <div class="" ng-model="vm.message" name="message" required>
-        <textarea class="form-control" rows="3" id="message"></textarea>
+      <div class="" name="message" required>
+        <textarea class="form-control" ng-model="vm.message" rows="3" id="message"></textarea>
       </div>
       <div class="send-message" role="alert" ng-show="msgform.$submitted || msgform.message.$dirty">
         <div ng-show="msgform.message.$error.required">Message Body is required</div>
@@ -25,7 +25,7 @@
 
     <div class="form-group">
       <div>
-        <button type="submit" class="btn btn-block btn-success" ng-click="vm.send(vm.telephone, vm.message)">Send it!</button>
+        <button type="submit" class="btn btn-block btn-success" ng-click="vm.send(vm.code + vm.telephone, vm.message)">Send it!</button>
       </div>
     </div>
   </fieldset>

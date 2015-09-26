@@ -6,13 +6,30 @@
     .controller('SettingsCtrl', SettingsCtrl);
 
   /* @ngInject */
-  function SettingsCtrl() {
+  function SettingsCtrl(routesService) {
 
     var vm = this;
-
-    vm.type = 'phone';
+    vm.addRoute = addRoute;
+    vm.getRoute = getRoute;
+    vm.deleteRoute = deleteRoute;
 
     return vm;
+
+    function addRoute(telephone, type, value) {
+      var route = {
+        type: type,
+        value: value
+      };
+      routesService.add(telephone, route);
+    }
+
+    function getRoute(telephone) {
+      routesService.get(telephone);
+    }
+
+    function deleteRoute(telephone) {
+      routesService.remove(telephone);
+    }
   }
 
 })();
