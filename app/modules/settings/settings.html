@@ -1,0 +1,53 @@
+<section id="content-page" class="container">
+  <div class="row text-align center">
+
+    <div id="personal-information" class="col-sm-6 col-sm-offset-3">
+
+      <form>
+
+        <div class="form-group">
+          <label for="phone">My Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="677 77 88 99" ng-model="vm.phone">
+        </div>
+
+        <div class="form-group">
+          <label for="target-type">Target message type</label>
+          <select id="target-type" class="form-control" ng-model="vm.type">
+            <option value="phone">Phone</option>
+            <option value="email">E-mail</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Target Phone/email</label>
+          <input type="text" class="form-control" id="phone" placeholder="677 77 88 99/email@domain.com" ng-model="vm.value">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Phone password</label>
+          <input type="password" class="form-control" id="password" placeholder="XXX-XXX" ng-model="vm.password">
+        </div>
+
+       <!--  <div class="form-group">
+          <label for="account-current-password">Current password *</label>
+          <input type="password" class="form-control" id="account-current-password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="account-new-password">New password *</label>
+          <input type="password" class="form-control" id="account-new-password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="account-repeat-new-password">Repeat new password *</label>
+          <input type="password" class="form-control" id="account-repeat-new-password" required>
+        </div> -->
+
+        <button type="submit" class="btn btn-primary btn-block">Save</button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>

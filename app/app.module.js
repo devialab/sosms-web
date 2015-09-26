@@ -14,7 +14,7 @@
 
     //features
     'app.home',
-    'app.account',
+    'app.settings',
     'app.layout',
     'app.login',
     'app.messages',
@@ -43,7 +43,7 @@
 
   /* @ngInject */
   function init(corbelDriver) {
-    corbelDriver.iam.token().create();
+    // corbelDriver.iam.token().create();
   }
 
 })();

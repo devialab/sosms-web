@@ -31,9 +31,9 @@
           }
         }
       })
-      .state('layout.account', {
-        url: '/account',
-        templateUrl: base + 'account/account.html',
+      .state('layout.settings', {
+        url: '/settings',
+        templateUrl: base + 'settings/settings.html',
         data: {
           // requireLogin: true
         }

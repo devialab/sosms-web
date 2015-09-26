@@ -1,11 +1,11 @@
 {
-  "corbel.urlBase": "http://api-int.sosms.com/",
+  "corbel.urlBase": "http://sosms-api.devialab.com/",
   "corbel.clientId": "clientId",
   "corbel.clientSecret": "clientSecret",
   "corbel.scopes": "sosms:comp",
   "corbel.userScopes": "sosms:comp",
   "corbel.audience": "http://iam.corbel.io",
-  "resourcesEndpoint": "http://api-int.sosms.com:8080/v1.0/",
+  "resourcesEndpoint": "http://sosms-api.devialab.com:8080/v1.0/",
   "iamEndpoint": "http://api-int.sosms.com:8082/v1.0/",
   "lang": "en"
 }

@@ -18,7 +18,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "./_spinner.scss";
 @import "compass";
 @import "compass/layout/sticky-footer";
-@import "../modules/layout/styles/_layout";
+@import "../modules/home/styles/_home.scss";
+@import "../modules/layout/styles/_layout.scss";
+@import "../modules/settings/styles/_settings.scss";
+@import "../modules/messages/styles/_messages.scss";
 body {
   padding-top: 50px;
 }
@@ -30,16 +33,3 @@ body {
 
 
 /* centered columns styles */
-
-.row-centered {
-  text-align: center;
-}
-
-.col-centered {
-  display: inline-block;
-  float: none;
-  /* reset the text-align */
-  text-align: left;
-  /* inline-block space fix */
-  margin-right: -4px;
-}

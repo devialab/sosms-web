@@ -1,4 +1,19 @@
-.nav-header img {
-  height: 3em;
-  margin-top: 0.5em;
+
+.navbar-header img {
+  height: 2.75em !important;
+  margin-top: -0.75em;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+
+.payment-method {
+  line-height: 5em;
+  img {
+    margin-left: 0.5em;
+  }
 }
