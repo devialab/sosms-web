@@ -5,16 +5,10 @@
     .controller('HomeCtrl', HomeCtrl);
 
   /* @ngInject */
-  function HomeCtrl($location, $log) {
+  function HomeCtrl() {
     var vm = this;
 
-    vm.isLanding = isLanding;
-
     return vm;
-
-    function isLanding() {
-      return $location.path() === '/';
-    }
   }
 
 })();

@@ -13,6 +13,7 @@
     'app.core',
 
     //features
+    'app.home',
     'app.account',
     'app.layout',
     'app.login',
