@@ -21,7 +21,7 @@
     return vm;
 
     function send(telephone, message) {
-      messagesService.send(telephone, message);
+      messagesService.send('00' + telephone, message);
     }
 
   }
