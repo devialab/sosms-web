@@ -24,7 +24,7 @@
       var messageObject = {
         to: '00' + telephone,
         message: body
-      }
+      };
       messagesService.send(messageObject);
     }
 
