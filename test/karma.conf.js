@@ -33,11 +33,11 @@ module.exports = function(config) {
       'bower_components/angular-underscore-module/angular-underscore-module.js',
       'bower_components/angular-loading-bar/build/loading-bar.js',
       'bower_components/ngstorage/ngStorage.js',
-      'app/modules/**/*.module.js',
-      'app/modules/**/*.js',
       'app/*.module.js',
       'app/*.js',
       '.tmp/*.js',
+      'app/modules/**/*.module.js',
+      'app/modules/**/*.js',
       'test/spec/**/*.js'
     ],
 

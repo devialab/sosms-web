@@ -6,7 +6,6 @@
   * @name app.home
   * @description sosms home module
   */
-  angular
-    .module('app.home', []);
+  angular.module('app.home', []);
 
 })();
