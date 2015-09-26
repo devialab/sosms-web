@@ -1,6 +1,10 @@
+![Codeship Status for devialab/sosms-web](https://codeship.com/projects/cbf1f790-46b0-0133-24a7-3a7a159e2683/status?branch=master)
+
 # sosms-web
 
 `#PEACEHACK` `#PEACEHACKBCN` 2015 Front-End project
+
+# [Live demo](http://sosms.devialab.com/)
 
 # Installation
 

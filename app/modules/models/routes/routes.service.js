@@ -13,7 +13,7 @@
 
     var services = {
       get: get,
-      add: add,
+      set: set,
       remove: remove
     };
 
@@ -22,7 +22,7 @@
     function get(telephone) {
       return corbelDriver.resources.resource('sosms:Route', telephone).get();
     }
-    function add(telephone, route) {
+    function set(telephone, route) {
       return corbelDriver.resources.resource('sosms:Route', telephone).update(route);
     }
     function remove(telephone) {

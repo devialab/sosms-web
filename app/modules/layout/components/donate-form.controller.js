@@ -12,7 +12,7 @@
     .controller('DonateFormCtrl', DonateFormCtrl);
 
   /* @ngInject */
-  function DonateFormCtrl() {
+  function DonateFormCtrl(cfpLoadingBar, $timeout) {
 
     var vm = this;
 
@@ -25,7 +25,14 @@
 
     function donate(amount) {
       console.log('donate', amount);
-      alert('Woho! Thanks!');
+
+      cfpLoadingBar.start();
+
+      $timeout(function() {
+        cfpLoadingBar.complete();
+        alert('Woho! Thanks!');
+      }, 1000);
+
     }
 
     function setAmount(amount) {

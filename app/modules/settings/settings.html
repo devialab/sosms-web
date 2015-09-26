@@ -1,14 +1,39 @@
 <section id="content-page" class="container">
+
+  <div class="row alerts" ng-show="vm.route">
+    <div class="alert alert-info text-center lead">
+      <button type="button" class="close" ng-click="vm.deleteRoute(vm.phone)">×</button>
+      <strong>Current setting:</strong> ({{vm.route.type}}) {{vm.route.value}}
+    </div>
+  </div>
+
   <div class="row text-align center">
 
     <div id="personal-information" class="col-sm-6 col-sm-offset-3">
 
-      <form>
+      <form id="settingsform">
 
         <div class="form-group">
-          <label for="phone">My Phone</label>
-          <input type="text" class="form-control" id="phone" placeholder="677 77 88 99" ng-model="vm.phone">
+          <label for="sourcetelephone">Insert your Number</label>
         </div>
+        <div class="form-group row">
+
+          <div class="col-xs-2">
+            <input type="text" name="sourcecode" class="form-control" id="sourcecode" placeholder="34" ng-model="vm.sourcePhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
+          </div>
+
+          <div class="col-xs-10">
+            <input type="text" name="sourcetelephone" class="form-control" id="sourcetelephone" placeholder="654789123" ng-model="vm.sourcePhone" ng-pattern="/^[0-9]{9,10}$/" required>
+          </div>
+
+          <input type="hidden" value="{{vm.sourcePhoneCode + vm.sourcePhone}}" ng-model="vm.phone">
+
+          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.sourcecode.$error.pattern && settingsform.sourcecode.$dirty" ng-show="settingsform.sourcetelephone.$error.pattern">The international code must be a number with 2 digits</div>
+          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.sourcetelephone.$error.pattern && settingsform.sourcetelephone.$dirty" ng-show="settingsform.sourcetelephone.$error.pattern">The telephone number be a number with 9 or 10 digits</div>
+
+        </div>
+
+
 
         <div class="form-group">
           <label for="target-type">Target message type</label>
@@ -18,17 +43,39 @@
           </select>
         </div>
 
-        <div class="form-group">
-          <label for="phone">Target Phone/email</label>
-          <input type="text" class="form-control" id="phone" placeholder="677 77 88 99/email@domain.com" ng-model="vm.value">
+        <div class="form-group" ng-show="vm.type === 'email'">
+          <label for="target-email">Email</label>
+          <input type="email" class="form-control" id="target-email" placeholder="email@domain.com" ng-model="vm.targetEmail" email required>
         </div>
+
+
+
+        <div class="form-group" ng-show="vm.type === 'phone'">
+          <label for="telephone">Target Number</label>
+        </div>
+        <div class="form-group row" ng-show="vm.type === 'phone'">
+
+          <div class="col-xs-2">
+            <input type="text" name="targetcode" class="form-control" id="targetcode" placeholder="34" ng-model="vm.targetPhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
+          </div>
+
+          <div class="col-xs-10">
+            <input type="text" name="targettelephone" class="form-control" id="targettelephone" placeholder="654789123" ng-model="vm.targetPhone" ng-pattern="/^[0-9]{9,10}$/" required>
+          </div>
+
+          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.targetcode.$error.pattern && settingsform.targetcode.$dirty" ng-show="settingsform.targettelephone.$error.pattern">The international code must be a number with 2 digits</div>
+          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.targettelephone.$error.pattern && settingsform.targettelephone.$dirty" ng-show="settingsform.targettelephone.$error.pattern">The telephone number be a number with 9 or 10 digits</div>
+
+        </div>
+
+
 
         <div class="form-group">
           <label for="password">Phone password</label>
-          <input type="password" class="form-control" id="password" placeholder="XXX-XXX" ng-model="vm.password">
+          <input type="password" class="form-control" id="password" placeholder="Phone password" ng-model="vm.password" required>
         </div>
 
-       <!--  <div class="form-group">
+        <!--  <div class="form-group">
           <label for="account-current-password">Current password *</label>
           <input type="password" class="form-control" id="account-current-password" required>
         </div>
@@ -43,7 +90,7 @@
           <input type="password" class="form-control" id="account-repeat-new-password" required>
         </div> -->
 
-        <button type="submit" class="btn btn-primary btn-block" ng-click="vm.addRoute(vm.phone, vm.type, vm.value)">Save</button>
+        <button type="submit" class="btn btn-primary btn-block" ng-click="vm.addRoute()">Save</button>
 
       </form>
 
