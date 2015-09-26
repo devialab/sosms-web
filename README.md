@@ -1,6 +1,6 @@
 # sosms-web
 
-#PEACEHACK #PEACEHACKBCN 2015 Front-End project 
+`#PEACEHACK` `#PEACEHACKBCN` 2015 Front-End project
 
 # Installation
 
