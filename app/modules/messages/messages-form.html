@@ -1,0 +1,29 @@
+<form id="msg-form" name="msgform" class="col-sm-12 form-horizontal">
+  <fieldset>
+    <legend>Send a message</legend>
+    <div class="form-group">
+      <label for="telephone" class="col-lg-2 control-label">Insert the Number</label>
+      <div class="col-lg-10">
+        <input type="text" name="telephone" class="form-control" id="telephone" placeholder="0034666777888" ng-model="vm.telephone" ng-pattern="/^00[0-9]{11,12}$/" required>
+      </div>
+      <div class="send-message" role="alert" ng-show="msgform.$submitted && msgform.telephone.$error.pattern && msgform.telephone.$dirty">
+      <div ng-show="msgform.telephone.$error.pattern">Number format: 00+InternationalCode+Number (i.e. 0034123456789)</div>
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Type your message</label>
+      <div class="col-lg-10" ng-model="vm.message" name="message" required>
+        <textarea class="form-control" rows="3" id="message"></textarea>
+      </div>
+      <div class="send-message" role="alert" ng-show="msgform.$submitted || msgform.message.$dirty">
+      <div ng-show="msgform.message.$error.required">Message Body is required</div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary" ng-click="vm.send(vm.telephone, vm.message)">Send it!</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
