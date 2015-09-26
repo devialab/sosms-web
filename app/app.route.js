@@ -40,6 +40,15 @@
           // requireLogin: true
         }
       })
+      .state('layout.register', {
+        url: '/register',
+        templateUrl: base + 'register/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'vm',
+        data: {
+          // requireLogin: true
+        }
+      })
       .state('layout.index', {
         url: '/home',
         templateUrl: base + 'home/home.html',
@@ -48,8 +57,7 @@
       });
 
     $urlRouterProvider.otherwise(function($injector) {
-      var usersService = $injector.get('usersService');
-      return usersService.isLoggedSync() ? '/routes' : '/home';
+      return '/home';
     });
 
   }

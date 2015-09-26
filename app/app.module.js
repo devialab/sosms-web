@@ -18,7 +18,8 @@
     'app.layout',
     'app.login',
     'app.messages',
-    'app.routes'
+    'app.routes',
+    'app.register'
 
   ]).config(configure).run(init);
 
