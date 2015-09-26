@@ -1,0 +1,8 @@
+{
+  "corbel.urlBase": "http://corbel.io/",
+  "corbel.clientId": "clientId",
+  "corbel.clientSecret": "clientSecret",
+  "corbel.scopes": "sosms:comp",
+  "corbel.audience": "http://iam.corbel.io",
+  "lang": "en"
+}
