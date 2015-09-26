@@ -19,7 +19,9 @@
 
     return services;
 
-    function send(telephone, message) {
+    function send(message) {
+      //corbel
+      corbelDriver.resources.collection('sosms:message').update(message);
       return Promise.resolve(routeMock);
     }
 
