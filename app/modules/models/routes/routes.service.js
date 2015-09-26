@@ -12,44 +12,21 @@
   function routesService(_, corbelDriver, corbel, config) {
 
     var services = {
-      getAll: getAll,
+      get: get,
       add: add,
       remove: remove
     };
 
-    var routeMock = [{
-      id: '1',
-      form: '+34 123 123 123',
-      to: {
-        value: 'email@domain.com',
-        type: 'email'
-      }
-    }, {
-      id: '2',
-      form: '+34 123 123 123',
-      to: {
-        value: '+33 123 123 123',
-        type: 'phone'
-      }
-    }, {
-      id: '3',
-      form: '+34 123 123 123',
-      to: {
-        value: '+33 123 123 123',
-        type: 'email2@domain.com'
-      }
-    }];
-
     return services;
 
-    function getAll() {
-      return Promise.resolve(routeMock);
+    function get(telephone) {
+      return corbelDriver.resources.resource('sosms:Route', telephone).get();
     }
-    function add(route) {
-      return Promise.resolve();
+    function add(telephone, route) {
+      return corbelDriver.resources.resource('sosms:Route', telephone).update(route);
     }
-    function remove(routeId) {
-      return Promise.resolve();
+    function remove(telephone) {
+      return corbelDriver.resources.resource('sosms:Route', telephone).delete();
     }
 
   }

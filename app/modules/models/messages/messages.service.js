@@ -15,14 +15,10 @@
       send: send
     };
 
-    var routeMock = 'OK';
-
     return services;
 
     function send(message) {
-      //corbel
-      corbelDriver.resources.collection('sosms:message').update(message);
-      return Promise.resolve(routeMock);
+      return corbelDriver.resources.collection('sosms:Message').add(message);
     }
 
   }
