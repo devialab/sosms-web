@@ -20,8 +20,12 @@
 
     return vm;
 
-    function send(telephone, message) {
-      messagesService.send('00' + telephone, message);
+    function send(telephone, body) {
+      var messageObject = {
+        to: '00' + telephone,
+        message: body
+      };
+      messagesService.send(messageObject);
     }
 
   }
