@@ -22,27 +22,7 @@
   ]).config(configure).run(init);
 
   /* @ngInject */
-  function configure($translateProvider, corbelDriverProvider, configProvider, defaultLang) {
-
-    /**
-     * ANGULAR-TRANSLATE
-     */
-
-    $translateProvider.translations(defaultLang.name, defaultLang.values);
-
-    $translateProvider.useMissingTranslationHandlerLog();
-    $translateProvider.useStaticFilesLoader({
-      'prefix': 'json/lang/',
-      'suffix': '.json'
-    });
-
-    /**
-     * FOUC - Flash of untranslated content
-     * Force default language that is inyected in build time with grunt
-     * https://github.com/angular-translate/angular-translate/issues/921
-     */
-    $translateProvider.preferredLanguage(defaultLang.name);
-
+  function configure(corbelDriverProvider, configProvider) {
 
     /**
      * ANGULAR-CORBEL

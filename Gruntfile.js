@@ -277,19 +277,7 @@ module.exports = function(grunt) {
           CONFIG: grunt.file.readJSON('app/json/config.json')
         }
       },
-      build: {},
-      defaultLang: {
-        options: {
-          name: 'app.defaultLang',
-          dest: '.tmp/app.defaultLang.js',
-          constants: {
-            defaultLang: {
-              name: appConfig.defaultLang,
-              values: grunt.file.readJSON('app/json/lang/' + appConfig.defaultLang + '.json')
-            }
-          }
-        }
-      }
+      build: {}
     },
 
     // Renames files for browser caching purposes

@@ -16,8 +16,6 @@
     "angular-bootstrap": "~0.13.4",
     "angular-corbel": "~0.0.13",
     "angular-loading-bar": "~0.8.0",
-    "angular-translate": "~2.8.0",
-    "angular-translate-loader-static-files": "~2.8.0",
     "angular-ui-router": "~0.2.15",
     "angular-underscore-module": "~1.0.1",
     "bootstrap-sass-official": "~3.3.5",

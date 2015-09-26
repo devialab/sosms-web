@@ -12,17 +12,11 @@
     .controller('LayoutFooterCtrl', LayoutFooterCtrl);
 
   /* @ngInject */
-  function LayoutFooterCtrl($translate) {
+  function LayoutFooterCtrl() {
 
     var vm = this;
 
-    vm.setLang = setLang;
-
     return vm;
-
-    function setLang(lang) {
-      $translate.use(lang);
-    }
 
   }
 

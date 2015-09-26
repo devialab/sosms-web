@@ -23,7 +23,7 @@
         controller: 'RoutesCtrl',
         controllerAs: 'vm',
         data: {
-          requireLogin: true
+          // requireLogin: true
         },
         resolve: {
           routes: function(routesService) {
@@ -35,7 +35,7 @@
         url: '/account',
         templateUrl: base + 'account/account.html',
         data: {
-          requireLogin: true
+          // requireLogin: true
         }
       })
       .state('layout.index', {

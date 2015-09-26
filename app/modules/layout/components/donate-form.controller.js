@@ -16,13 +16,20 @@
 
     var vm = this;
 
+    vm.amount = 5;
+
     vm.donate = donate;
+    vm.setAmount = setAmount;
 
     return vm;
 
     function donate(amount) {
       console.log('donate', amount);
       alert('Woho! Thanks!');
+    }
+
+    function setAmount(amount) {
+      vm.amount = amount;
     }
 
   }

@@ -1,14 +1,30 @@
 <section>
   <h2>Please support us!</h2>
-  <input type="range">
-  <input type="text" ng-model="vm.amount">
-  <div>
-    <input type="radio" name="type" value="paypal" checked="checked">
-    <img src="images/paypal.png" alt="Pay with paypal.com">
+  <div class="btn-group">
+    <a href="#" class="btn btn-primary btn-lg">{{vm.amount}} €</a>
+    <a href class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href ng-click="vm.setAmount(5)">5 €</a></li>
+      <li><a href ng-click="vm.setAmount(10)">10 €</a></li>
+      <li><a href ng-click="vm.setAmount(20)">20 €</a></li>
+    </ul>
   </div>
-  <div>
-    <input type="radio" name="type" value="bitcoint" checked="checked">
-    <img src="images/bitcoin.png" alt="Pay with bitcoins">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <label for="paypal">
+        <input id="paypal" type="radio" name="type" value="paypal" checked="checked">
+        <img src="images/paypal.png" alt="Pay with paypal.com">
+      </label>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="bitcoin">
+        <input id="bitcoin" type="radio" name="type" value="bitcoint" checked="checked">
+        <img src="images/bitcoin.png" alt="Pay with bitcoins">
+      </label>
+    </div>
+
   </div>
-  <button class="btn btn-success btn-clock" ng-click="vm.donate(vm.amount)">Donate!</button>
+  <button class="btn btn-success btn-block  btn-large" ng-click="vm.donate(vm.amount)">Donate!</button>
 </section>
