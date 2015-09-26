@@ -2,7 +2,7 @@
 
 describe('Controller: HomeCtrl', function() {
 
-  var HomeCtrl, scope;
+  var HomeCtrl;
 
   beforeEach(module('app.home'));
 
