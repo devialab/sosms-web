@@ -1,37 +1,49 @@
-<div>
-  <form id="msg-form" name="msgform">
-    <div clall="register" ng-hide="vm.submited">
-      <label for="telephone" class="control-label pull-left">Insert your telephone number</label>
-      <div class="form-group row">
-        <div class="col-xs-2">
-          <input type="text" name="code" class="form-control" id="code" placeholder="34" ng-model="vm.code" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
+<div class="row register-container">
+
+  <section id="content-page" class="col-sm-10 col-sm-offset-1">
+
+    <div class="row">
+
+      <form id="msg-form" name="msgform">
+
+        <div clall="register" ng-hide="vm.submited">
+          <label for="telephone" class="control-label pull-left">Insert your telephone number</label>
+          <div class="form-group row">
+            <div class="col-xs-2">
+              <input type="text" name="code" class="form-control input-lg" id="code" placeholder="34" ng-model="vm.code" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
+            </div>
+            <div class="col-xs-10">
+              <input type="text" name="telephone" class="form-control input-lg" id="telephone" placeholder="654789123" ng-model="vm.telephone" ng-pattern="/^[0-9]{9,10}$/" required>
+            </div>
+            <div class="send-message" role="alert" ng-show="msgform.$submitted && msgform.code.$error.pattern && msgform.code.$dirty" ng-show="msgform.telephone.$error.pattern">The international code must be a number with 2 digits</div>
+            <div class="send-message" role="alert" ng-show="msgform.$submitted && msgform.telephone.$error.pattern && msgform.telephone.$dirty" ng-show="msgform.telephone.$error.pattern">The telephone number be a number with 9 or 10 digits</div>
+          </div>
+          <div class="form-group">
+            <div>
+              <button type="submit" class="btn btn-block btn-success" ng-click="vm.submited=true; vm.register(vm.code + vm.telephone)">Register</button>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-10">
-          <input type="text" name="telephone" class="form-control" id="telephone" placeholder="654789123" ng-model="vm.telephone" ng-pattern="/^[0-9]{9,10}$/" required>
+
+        <div clall="verify" ng-show="vm.submited">
+          <label for="telephone" class="control-label pull-left">Enter the verification password</label>
+          <div class="form-group row">
+            <div class="col-xs-10">
+              <input type="text" name="password" class="form-control input-lg" id="password" ng-model="vm.password" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div>
+              <button type="submit" class="btn btn-block btn-success" ng-click="vm.verify(vm.code + vm.telephone, vm.password)">Verify</button>
+            </div>
+          </div>
         </div>
-        <div class="send-message" role="alert" ng-show="msgform.$submitted && msgform.code.$error.pattern && msgform.code.$dirty" ng-show="msgform.telephone.$error.pattern">The international code must be a number with 2 digits</div>
-        <div class="send-message" role="alert" ng-show="msgform.$submitted && msgform.telephone.$error.pattern && msgform.telephone.$dirty" ng-show="msgform.telephone.$error.pattern">The telephone number be a number with 9 or 10 digits</div>
-      </div>
-      <div class="form-group">
-        <div>
-          <button type="submit" class="btn btn-block btn-success" ng-click="vm.submited=true; vm.register(vm.code + vm.telephone)">Register</button>
-        </div>
-      </div>
+
+      </form>
+
     </div>
 
-    <div clall="verify" ng-show="vm.submited">
-      <label for="telephone" class="control-label pull-left">Enter the verification password</label>
-      <div class="form-group row">
-        <div class="col-xs-10">
-          <input type="text" name="password" class="form-control" id="password" ng-model="vm.password" required>
-        </div>
-      </div>
+  </section>
 
-      <div class="form-group">
-        <div>
-          <button type="submit" class="btn btn-block btn-success" ng-click="vm.verify(vm.code + vm.telephone, vm.password)">Verify</button>
-        </div>
-      </div>
-    </div>
-  </form>
 </div>

@@ -1,4 +1,4 @@
-![Codeship Status for devialab/sosms-web](https://codeship.com/projects/cbf1f790-46b0-0133-24a7-3a7a159e2683/status?branch=master)
+![Codeship Status for devialab/sosms-web](https://codeship.com/projects/cbf1f790-46b0-0133-24a7-3a7a159e2683/status?branch=master) [status](https://codeship.com/projects/104938)
 
 # sosms-web
 
