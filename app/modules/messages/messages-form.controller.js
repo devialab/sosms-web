@@ -24,8 +24,9 @@
       if (telephone === undefined || body === undefined || body === '') {
         return;
       }
+      var country = $('.country.active').data('dial-code');
       var messageObject = {
-        to: '00' + telephone,
+        to: '00' + country + telephone,
         message: body
       };
       messagesService.send(messageObject).then(function() {
