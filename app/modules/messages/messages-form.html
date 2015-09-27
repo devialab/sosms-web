@@ -20,9 +20,9 @@
 
   <div class="form-group">
 
-    <label for="textArea" class="control-label pull-left" maxlength="140">Type your message</label>
+    <label for="textArea" class="control-label pull-left">Type your message: ({{140-vm.message.length || 0}})</label>
     <div name="message" required>
-      <textarea class="form-control" ng-model="vm.message" rows="3" id="message"></textarea>
+      <textarea class="form-control" ng-model="vm.message" maxlength="140" rows="3" id="message"></textarea>
     </div>
 
     <div class="send-message" role="alert" ng-show="msgform.$submitted || msgform.message.$dirty">

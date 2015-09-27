@@ -9,6 +9,7 @@
     'ui.bootstrap',
     'angular-loading-bar',
     'angular-corbel',
+    'internationalPhoneNumber',
 
     // Cross module dependencies
     'app.config'
