@@ -19,6 +19,7 @@
     function addRoute() {
       var sourceCountry = $('.source-phone-input .country.active').data('dial-code');
       var targetCountry = $('.target-phone-input .country.active').data('dial-code');
+      var targetCountryString = $('.target-phone-input .country.active').data('country-code');
       var phone = '00' + sourceCountry + vm.phone;
       if (vm.type === 'phone') {
         vm.value = '00' + targetCountry + vm.targetPhone;
@@ -31,6 +32,8 @@
       var route = {
         type: vm.type,
         value: vm.value,
+        countryCode: targetCountry,
+        country: targetCountryString,
         password: vm.password
       };
       routesService.set(phone, route).then(function() {
@@ -47,17 +50,23 @@
       if (!vm.phone) {
         return;
       }
-      routesService.get(vm.phone).then(function(response) {
+      var sourceCountry = $('.source-phone-input .country.active').data('dial-code');
+      routesService.get('00' + sourceCountry + vm.phone).then(function(response) {
         vm.route = response.data;
         vm.type = vm.route.type;
-        vm.targetPhone = vm.route.value;
-        vm.targetEmail = vm.route.value;
+        if (vm.type === 'phone') {
+          vm.targetPhone = vm.route.value.replace('00' + vm.route.countryCode, '');
+          $('.target-phone-input input').intlTelInput('selectCountry', vm.route.country);
+        } else {
+          vm.targetEmail = vm.route.value;
+        }
         $scope.$digest();
       });
     }
 
     function deleteRoute(phone) {
-      routesService.remove(phone).then(function() {
+      var sourceCountry = $('.source-phone-input .country.active').data('dial-code');
+      routesService.remove('00' + sourceCountry + phone).then(function() {
         vm.route = undefined;
         $scope.$digest();
       });
