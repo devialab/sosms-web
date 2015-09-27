@@ -21,7 +21,9 @@
     return vm;
 
     function send(telephone, body) {
-      if(telephone === undefined || body === undefined || body === '') return
+      if (telephone === undefined || body === undefined || body === '') {
+        return;
+      }
       var messageObject = {
         to: '00' + telephone,
         message: body

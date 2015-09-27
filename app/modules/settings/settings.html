@@ -1,28 +1,21 @@
 <section id="content-page" class="container">
 
-  <div class="row alerts" ng-show="vm.route">
-    <div class="alert alert-info text-center lead">
-      <button type="button" class="close" ng-click="vm.deleteRoute(vm.phone)">×</button>
-      <strong>Current setting:</strong> ({{vm.route.type}}) {{vm.route.value}}
-    </div>
-  </div>
-
   <div class="row text-align center">
 
     <div id="personal-information" class="col-sm-8 col-sm-offset-2">
 
-      <form id="settingsform">
+      <form id="settingsform" name="settingsform">
 
         <div class="form-group">
           <label for="sourcetelephone">Insert your Number</label>
         </div>
         <div class="form-group row">
 
-          <div class="col-xs-2">
+          <div class="col-xs-2" ng-class="{'has-error': settingsform.sourcecode.$invalid && settingsform.sourcecode.$dirty}">
             <input type="text" name="sourcecode" class="form-control input-lg" id="sourcecode" placeholder="34" ng-model="vm.sourcePhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
           </div>
 
-          <div class="col-xs-10">
+          <div class="col-xs-10" ng-class="{'has-error': settingsform.sourcetelephone.$invalid && settingsform.sourcetelephone.$dirty}">
             <input type="text" name="sourcetelephone" class="form-control input-lg" id="sourcetelephone" placeholder="666555444" ng-model="vm.sourcePhone" ng-pattern="/^[0-9]{9,10}$/" required>
           </div>
 
@@ -34,18 +27,17 @@
         </div>
 
 
-
         <div class="form-group">
           <label for="target-type">Target message type</label>
-          <select id="target-type" class="form-control input-lg" ng-model="vm.type">
+          <select id="target-type" class="form-control input-lg" ng-model="vm.type" ng-disabled="vm.route">
             <option value="phone">Phone</option>
             <option value="email">E-mail</option>
           </select>
         </div>
 
-        <div class="form-group" ng-show="vm.type === 'email'">
+        <div class="form-group" ng-show="vm.type === 'email'" ng-class="{'has-error': settingsform.targetemail.$invalid && settingsform.targetemail.$dirty}">
           <label for="target-email">Email</label>
-          <input type="email" class="form-control input-lg" id="target-email" placeholder="email@domain.com" ng-model="vm.targetEmail" email required>
+          <input type="email" class="form-control input-lg" id="target-email" name="targetemail" placeholder="email@domain.com" ng-model="vm.targetEmail" email required ng-disabled="vm.route">
         </div>
 
 
@@ -56,11 +48,11 @@
         <div class="form-group row" ng-show="vm.type === 'phone'">
 
           <div class="col-xs-2">
-            <input type="text" name="targetcode" class="form-control input-lg" id="targetcode" placeholder="34" ng-model="vm.targetPhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
+            <input type="text" name="targetcode" class="form-control input-lg" id="targetcode" placeholder="34" ng-model="vm.targetPhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required ng-disabled="vm.route">
           </div>
 
           <div class="col-xs-10">
-            <input type="text" name="targettelephone" class="form-control input-lg" id="targettelephone" placeholder="666555444" ng-model="vm.targetPhone" ng-pattern="/^[0-9]{9,10}$/" required>
+            <input type="text" name="targettelephone" class="form-control input-lg" id="targettelephone" placeholder="666555444" ng-model="vm.targetPhone" ng-pattern="/^[0-9]{9,10}$/" required ng-disabled="vm.route">
           </div>
 
           <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.targetcode.$error.pattern && settingsform.targetcode.$dirty" ng-show="settingsform.targettelephone.$error.pattern">The international code must be a number with 2 digits</div>
@@ -70,27 +62,13 @@
 
 
 
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error': settingsform.password.$invalid && settingsform.password.$dirty}">
           <label for="password">Phone password</label>
-          <input type="password" class="form-control input-lg" id="password" placeholder="Phone password" ng-model="vm.password" required>
+          <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Phone password" ng-model="vm.password" required>
         </div>
 
-        <!--  <div class="form-group">
-          <label for="account-current-password">Current password *</label>
-          <input type="password" class="form-control input-lg" id="account-current-password" required>
-        </div>
-
-        <div class="form-group">
-          <label for="account-new-password">New password *</label>
-          <input type="password" class="form-control input-lg" id="account-new-password" required>
-        </div>
-
-        <div class="form-group">
-          <label for="account-repeat-new-password">Repeat new password *</label>
-          <input type="password" class="form-control input-lg" id="account-repeat-new-password" required>
-        </div> -->
-
-        <button type="submit" class="btn btn-primary btn-block  input-lg" ng-click="vm.addRoute()">Save</button>
+        <button type="submit" class="btn btn-primary btn-block input-lg" ng-hide="vm.route" ng-click="vm.addRoute()">Save</button>
+        <button type="submit" class="btn btn-danger btn-block input-lg" ng-show="vm.route" ng-click="vm.deleteRoute(vm.phone, vm.password)">Delete | Change</button>
 
       </form>
 

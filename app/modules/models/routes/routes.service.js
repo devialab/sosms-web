@@ -20,13 +20,19 @@
     return services;
 
     function get(telephone) {
-      return corbelDriver.resources.resource('sosms:Route', telephone).get();
+      return corbelDriver.resources.resource('sosms:InternalRoute', telephone).get();
     }
+
     function set(telephone, route) {
       return corbelDriver.resources.resource('sosms:Route', telephone).update(route);
     }
-    function remove(telephone) {
-      return corbelDriver.resources.resource('sosms:Route', telephone).delete();
+
+    function remove(telephone, password) {
+      return corbelDriver.resources.resource('sosms:Route', telephone).delete({
+        data: {
+          password: password
+        }
+      });
     }
 
   }

@@ -55,15 +55,14 @@
     }
 
     function getRoute() {
-      var phone;
-      if (vm.sourcePhoneCode && vm.sourcePhone) {
-        phone = vm.sourcePhoneCode + vm.sourcePhone;
-      }
-      if (!phone) {
+      if (!vm.phone) {
         return;
       }
-      routesService.get(phone).then(function(response) {
+      routesService.get(vm.phone).then(function(response) {
         vm.route = response.data;
+        vm.type = vm.route.type;
+        vm.targetPhone = vm.route.value;
+        vm.targetEmail = vm.route.value;
         $scope.$digest();
       });
     }
