@@ -21,6 +21,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../modules/home/styles/_home.scss";
 @import "../modules/layout/styles/_layout.scss";
 @import "../modules/settings/styles/_settings.scss";
+@import "../modules/register/styles/_register.scss";
 @import "../modules/messages/styles/_messages.scss";
 body {
   padding-top: 50px;
@@ -29,6 +30,14 @@ body {
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+legend {
+  font-size: 2em;
 }
 
 

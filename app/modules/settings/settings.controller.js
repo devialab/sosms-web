@@ -17,12 +17,14 @@
     $scope.$watch('vm.sourcePhoneCode', function() {
       if (vm.sourcePhoneCode && vm.sourcePhone) {
         vm.phone = '00' + vm.sourcePhoneCode + vm.sourcePhone;
+        getRoute();
       }
     });
 
     $scope.$watch('vm.sourcePhone', function() {
       if (vm.sourcePhoneCode && vm.sourcePhone) {
         vm.phone = '00' + vm.sourcePhoneCode + vm.sourcePhone;
+        getRoute();
       }
     });
 
@@ -56,6 +58,9 @@
       var phone;
       if (vm.sourcePhoneCode && vm.sourcePhone) {
         phone = vm.sourcePhoneCode + vm.sourcePhone;
+      }
+      if (!phone) {
+        return;
       }
       routesService.get(phone).then(function(response) {
         vm.route = response.data;

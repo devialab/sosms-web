@@ -12,7 +12,7 @@
     .controller('MessagesFormCtrl', MessagesFormCtrl);
 
   /* @ngInject */
-  function MessagesFormCtrl($state, messagesService) {
+  function MessagesFormCtrl($scope, $state, messagesService) {
 
     var vm = this;
 
@@ -25,7 +25,20 @@
         to: '00' + telephone,
         message: body
       };
-      messagesService.send(messageObject);
+      messagesService.send(messageObject).then(function() {
+        _reset();
+        $scope.$digest();
+        alert('Sended!');
+      }).catch(function(response) {
+        alert('Ops! Try it later...');
+        console.error(response);
+      });
+    }
+
+    function _reset() {
+      vm.code = undefined;
+      vm.telephone = undefined;
+      vm.message = undefined;
     }
 
   }
