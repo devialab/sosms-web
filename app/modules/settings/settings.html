@@ -2,28 +2,17 @@
 
   <div class="row text-align center">
 
-    <div id="personal-information" class="col-sm-8 col-sm-offset-2">
+    <div id="personal-information" class="col-sm-10 col-sm-offset-1">
 
       <form id="settingsform" name="settingsform">
 
         <div class="form-group">
           <label for="sourcetelephone">Insert your Number</label>
         </div>
-        <div class="form-group row">
-
-          <div class="col-xs-2" ng-class="{'has-error': settingsform.sourcecode.$invalid && settingsform.sourcecode.$dirty}">
-            <input type="text" name="sourcecode" class="form-control input-lg" id="sourcecode" placeholder="34" ng-model="vm.sourcePhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required>
+        <div class="form-group row source-phone-input">
+          <div class="col-xs-12" ng-class="{'has-error':settingsform.sourcetelephone.$invalid && settingsform.sourcetelephone.$dirty}">
+            <input type="text" class="form-control input-lg" name="sourcetelephone" international-phone-number id="sourcetelephone" ng-model="vm.phone" default-country="es" required>
           </div>
-
-          <div class="col-xs-10" ng-class="{'has-error': settingsform.sourcetelephone.$invalid && settingsform.sourcetelephone.$dirty}">
-            <input type="text" name="sourcetelephone" class="form-control input-lg" id="sourcetelephone" placeholder="666555444" ng-model="vm.sourcePhone" ng-pattern="/^[0-9]{9,10}$/" required>
-          </div>
-
-          <input type="hidden" value="{{vm.sourcePhoneCode + vm.sourcePhone}}" ng-model="vm.phone">
-
-          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.sourcecode.$error.pattern && settingsform.sourcecode.$dirty" ng-show="settingsform.sourcetelephone.$error.pattern">The international code must be a number with 2 digits</div>
-          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.sourcetelephone.$error.pattern && settingsform.sourcetelephone.$dirty" ng-show="settingsform.sourcetelephone.$error.pattern">The telephone number be a number with 9 or 10 digits</div>
-
         </div>
 
 
@@ -45,19 +34,10 @@
         <div class="form-group" ng-show="vm.type === 'phone'">
           <label for="telephone">Target Number</label>
         </div>
-        <div class="form-group row" ng-show="vm.type === 'phone'">
-
-          <div class="col-xs-2">
-            <input type="text" name="targetcode" class="form-control input-lg" id="targetcode" placeholder="34" ng-model="vm.targetPhoneCode" ng-pattern="/^[0-9]{2}$/" maxlength="2" size="2" required ng-disabled="vm.route">
+        <div class="form-group row target-phone-input" ng-show="vm.type === 'phone'">
+          <div class="col-xs-12" ng-class="{'has-error':settingsform.targettelephone.$invalid && settingsform.targettelephone.$dirty}">
+            <input type="text" class="form-control input-lg" international-phone-number name="targettelephone" id="targettelephone" ng-model="vm.targetPhone" default-country="es" required>
           </div>
-
-          <div class="col-xs-10">
-            <input type="text" name="targettelephone" class="form-control input-lg" id="targettelephone" placeholder="666555444" ng-model="vm.targetPhone" ng-pattern="/^[0-9]{9,10}$/" required ng-disabled="vm.route">
-          </div>
-
-          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.targetcode.$error.pattern && settingsform.targetcode.$dirty" ng-show="settingsform.targettelephone.$error.pattern">The international code must be a number with 2 digits</div>
-          <div class="send-message" role="alert" ng-show="settingsform.$submitted && settingsform.targettelephone.$error.pattern && settingsform.targettelephone.$dirty" ng-show="settingsform.targettelephone.$error.pattern">The telephone number be a number with 9 or 10 digits</div>
-
         </div>
 
 

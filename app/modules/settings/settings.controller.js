@@ -14,25 +14,14 @@
     vm.getRoute = getRoute;
     vm.deleteRoute = deleteRoute;
 
-    $scope.$watch('vm.sourcePhoneCode', function() {
-      if (vm.sourcePhoneCode && vm.sourcePhone) {
-        vm.phone = '00' + vm.sourcePhoneCode + vm.sourcePhone;
-        getRoute();
-      }
-    });
-
-    $scope.$watch('vm.sourcePhone', function() {
-      if (vm.sourcePhoneCode && vm.sourcePhone) {
-        vm.phone = '00' + vm.sourcePhoneCode + vm.sourcePhone;
-        getRoute();
-      }
-    });
-
     return vm;
 
     function addRoute() {
+      var sourceCountry = $('.source-phone-input .country.active').data('dial-code');
+      var targetCountry = $('.target-phone-input .country.active').data('dial-code');
+      var phone = '00' + sourceCountry + vm.phone;
       if (vm.type === 'phone') {
-        vm.value = '00' + vm.targetPhoneCode + vm.targetPhone;
+        vm.value = '00' + targetCountry + vm.targetPhone;
       } else {
         vm.value = vm.targetEmail;
       }
@@ -44,7 +33,7 @@
         value: vm.value,
         password: vm.password
       };
-      routesService.set(vm.phone, route).then(function() {
+      routesService.set(phone, route).then(function() {
         vm.route = route;
         $scope.$digest();
       }).catch(function(response) {
